@@ -70,7 +70,7 @@ void main_screen()
 		regist_screen();	//进入用户注册系统
 		break;
 	case 3:
-		system("cls"); 
+		system("cls");
 		administrator_sign_in_screen();	//进入管理后台
 		break;
 	default:
@@ -130,8 +130,8 @@ void administrator_screen()
 			}
 			printf("继续查询请输入1并按回车确认,返回管理员主页请输入任意字符：\n");
 			char flag[10];
-			scanf_s(" %s", &flag,10);
-			if (strcmp(flag,"1")!=0)
+			scanf_s(" %s", &flag, 10);
+			if (strcmp(flag, "1") != 0)
 			{
 				system("cls");
 				getchar();
@@ -153,7 +153,7 @@ void administrator_screen()
 			char* result = NULL;
 
 			printf("查询结果：\n");
-			if (strcmp(field_name,"all")==0)
+			if (strcmp(field_name, "all") == 0)
 			{
 				printf("☆==============================================================================☆\n");
 				printf("  %-13s%-13s%-13s%-23s%-13s%-13s\n", "name", "age", "sex", "id_number", "passport", "power");
@@ -174,8 +174,8 @@ void administrator_screen()
 			printf("==============================================================================\n");
 			printf("继续查询请输入1并按回车确认,返回管理员主页请输入任意字符：\n");
 			char flag[10];
-			scanf_s(" %s", &flag,10);
-			if (strcmp(flag,"1")!=0)
+			scanf_s(" %s", &flag, 10);
+			if (strcmp(flag, "1") != 0)
 			{
 				system("cls");
 				getchar();
@@ -209,7 +209,7 @@ void administrator_screen()
 			}
 			printf("继续修改请输入1并按回车确认,返回管理员主页请输入任意字符：\n");
 			char flag2[10];
-			scanf_s(" %s", &flag2,10);
+			scanf_s(" %s", &flag2, 10);
 			if (strcmp(flag2, "1") != 0)
 			{
 				system("cls");
@@ -231,7 +231,7 @@ void administrator_screen()
 			printf("#  请确认是否要删除该用户，确认请输入“Yes”或“yes”并按回车确认\n");
 			scanf_s(" %s", flag, 5);
 			int result = 1;
-			if ( (strcmp(flag,"yes")==0) || (strcmp(flag, "Yes") == 0) )
+			if ((strcmp(flag, "yes") == 0) || (strcmp(flag, "Yes") == 0))
 			{
 				result = delet_user(user_name);
 			}
@@ -245,9 +245,9 @@ void administrator_screen()
 			}
 			printf("#  继续删除请输入1并按回车确认,返回管理员主页请输入任意字符：\n");
 			char flag2[10];
-			scanf_s(" %s", &flag2,10);
+			scanf_s(" %s", &flag2, 10);
 			printf("==============================================================================\n");
-			if (strcmp(flag2,"1")!=0)
+			if (strcmp(flag2, "1") != 0)
 			{
 				system("cls");
 				getchar();
@@ -273,14 +273,14 @@ void administrator_sign_in_screen()
 	printf("                      ★★★---欢迎进入后台管理系统---★★★                \n\n");
 	printf("==============================================================================\n");
 	printf("#  请输入管理员账号并按回车确认：\n");
-	scanf_s("%s", user_name,10);
+	scanf_s("%s", user_name, 10);
 	printf("#  请输入管理员密码并按回车确认：\n");
-	scanf_s("%s", user_passport,12);
+	scanf_s("%s", user_passport, 12);
 	//验证通过则跳转到下一个UI界面，反之提示退出或重试
 	if (administrator_verify(user_name, user_passport) == 0)
 	{
 		system("cls");
-		administrator_screen(); 
+		administrator_screen();
 	}
 	else
 	{
@@ -309,7 +309,7 @@ void sign_in_screen()
 	printf("#  请输入用户名并按回车确认：\n");
 	scanf_s("%s", user, 10);
 	printf("#  请输入密码并按回车确认：\n");
-	scanf_s("%s", passWord,12);
+	scanf_s("%s", passWord, 12);
 
 	int ret = sign_in(user, passWord);
 
@@ -324,7 +324,7 @@ void sign_in_screen()
 	{
 		printf("密码错误，（按y重新输入，其他键退出）：");
 		char in;
-		scanf_s(" %c", &in,1);
+		scanf_s(" %c", &in, 1);
 		if ('y' == in || 'Y' == in)
 		{
 			system("cls");
@@ -339,7 +339,7 @@ void sign_in_screen()
 	{
 		printf("用户名不存在，（输入y重新输入，其他键退出）：\n");
 		char in;
-		scanf_s(" %c", &in,1);
+		scanf_s(" %c", &in, 1);
 		if ('y' == in || 'Y' == in)
 		{
 			system("cls");
@@ -357,15 +357,15 @@ void regist_screen()
 	printf("==============================================================================\n\n");
 	printf("                      ★★★---欢迎进入注册界面---★★★                 \n\n");
 	printf("==============================================================================\n");
-	char username[10]="", pass1[12]="", pass2[12]="", id_number[19];
+	char username[10] = "", pass1[12] = "", pass2[12] = "", id_number[19];
 	int age, sex, power;
 
 	printf("#  请输入用户名并按回车确认：\n");
-	scanf_s("%s", username,10);
+	scanf_s("%s", username, 10);
 	printf("#  请输入年龄并按回车确认：\n");
 	scanf_s("%d", &age);
 
-	do 
+	do
 	{
 		printf("#  请输入性别(1代表男，0代表女)并按回车确认：\n");
 		scanf_s(" %d", &sex);
@@ -377,9 +377,9 @@ void regist_screen()
 	} while (1);
 
 	printf("#  请输入身份证号码并按回车确认：\n");
-	scanf_s(" %s", id_number,19);
+	scanf_s(" %s", id_number, 19);
 
-	do 
+	do
 	{
 		printf("#  请输入身份标识符(1标识管理员权限,0表示普通用户)：\n");
 		scanf_s("%d", &power);
@@ -390,21 +390,21 @@ void regist_screen()
 		else if (1 == power)
 		{
 			int ret;
-			do 
+			do
 			{
 				printf("#  请验证管理员：\n");
 				char user_name_[10], pass_[12];
 				printf("#  请输入管理员账号并按回车确认：\n");
-				scanf_s(" %s", user_name_,10);
+				scanf_s(" %s", user_name_, 10);
 				printf("#  请输入管理员密码并按回车确认：\n");
-				scanf_s(" %s", pass_,12);
+				scanf_s(" %s", pass_, 12);
 				ret = administrator_verify(user_name_, pass_);
 				if (ret != 0)
 				{
 					printf("验证失败！\n");
 					printf("重新验证（Y代表重新验证，输入其它字符退出程序）：\n");
 					char in;
-					scanf_s("%c", &in,1);
+					scanf_s("%c", &in, 1);
 					if ('y' != in && 'Y' != in)
 					{
 						exit(0);
@@ -416,12 +416,12 @@ void regist_screen()
 		printf("#  不符合规范，请重新输入");
 	} while (1);
 	printf("==============================================================================\n");
-	do 
+	do
 	{
 		printf("#  请输入密码并按回车确认：\n");
-		scanf_s(" %s", pass1,12);
+		scanf_s(" %s", pass1, 12);
 		printf("#  请再次输入密码并按回车确认：\n");
-		scanf_s("%s", pass2,12);
+		scanf_s("%s", pass2, 12);
 	} while (strcmp(pass1, pass2) != 0);
 	if (!regist(username, age, sex, id_number, pass1, power))
 	{
@@ -454,7 +454,7 @@ void ticket_screen()
 		print_planes();
 		char flag[10];
 		printf("#  继续订票请输入1并按回车确认，输入其它字符返回订票页面\n");
-		scanf_s(" %s", &flag,10);
+		scanf_s(" %s", &flag, 10);
 		if (strcmp(flag, "1") == 0)
 		{
 			printf("==============================================================================\n");
@@ -503,7 +503,31 @@ void ticket_screen()
 	}
 
 	case 2: {
-		while (1)
+
+		printf("#===================================================#\n");
+		char plane_id[10];
+		printf("请输入要查询航班的航班号并按回车确认:\n");
+		scanf_s(" %s", plane_id, 10);
+		int result = 1;
+		printf("#===================================================#\n");
+		for (int i = 0; i < plane_num; i++)
+		{
+			if (strcmp(plane_list[i].num, plane_id) == 0)
+			{
+				result = 0;
+				printf("结果如下：\n");
+				printf("航班号:%s\t飞机型号:%s\t出发地名称:%s\t目的地名称:%s\t起飞时间:%s\t降落时间:%s\t价格:%d\t剩余票量:%d\t\n", plane_list[i].num, plane_list[i].model, plane_list[i].starting_point, plane_list[i].destination, plane_list[i].start_time, plane_list[i].end_time, plane_list[i].price, plane_list[i].count);
+			}
+		}
+		if (result)
+		{
+			printf("查询结果为空\n");
+		}
+		char flag[10];
+	twice:printf("#===================================================#\n");
+		printf("继续查询请输入1，输入其它字符返回订票首页\n");
+		scanf_s(" %s", &flag, 10);
+		if (strcmp(flag, "1") == 0)
 		{
 			printf("#===================================================#\n");
 			char plane_id[10];
@@ -524,17 +548,14 @@ void ticket_screen()
 			{
 				printf("查询结果为空\n");
 			}
-			char flag[10];
-			printf("#===================================================#\n");
-			printf("继续查询请输入1，输入其它字符返回订票首页\n");
-			scanf_s(" %s", &flag,10);
-			if (strcmp(flag,"1")==0)
-			{
-				system("cls");
-				ticket_screen();
-			}
 		}
-		break; }
+		else {
+			system("cls");
+			ticket_screen();
+		}
+		goto twice;
+		break;
+	}
 
 	case 3: {
 		printf("#===================================================#\n");
@@ -542,8 +563,8 @@ void ticket_screen()
 		printf("#===================================================#\n");
 		char flag1[10];
 		printf("#  继续订票请输入1并按回车确认，输入其它字符返回订票页面\n");
-		scanf_s("%s", flag1,10);
-		if (strcmp(flag1,"1")==0)
+		scanf_s("%s", flag1, 10);
+		if (strcmp(flag1, "1") == 0)
 		{
 			printf("==============================================================================\n");
 			char plane_id[10];
@@ -615,7 +636,7 @@ void ticket_screen()
 		}
 		char flag2[10];
 		printf("#  继续订票请输入1并按回车确认，输入其它字符返回订票页面\n");
-		scanf_s(" %s", &flag2,10);
+		scanf_s(" %s", &flag2, 10);
 		if (strcmp(flag2, "1") == 0)
 		{
 			printf("==============================================================================\n");
